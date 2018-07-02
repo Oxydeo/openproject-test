@@ -6,9 +6,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi!</h1>
+        <p>I'm a react app</p>
       </div>
     );
   }
 }
 
-export default App;
+export default App; 
