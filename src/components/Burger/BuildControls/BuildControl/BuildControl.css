@@ -1,11 +1,10 @@
-.BuildControl {
+.buildControl {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
 }
 
 button {
-  display: block;
   font: inherit;
   padding: 5px;
   margin: 0 5px;
@@ -55,6 +54,6 @@ button:hover:disabled {
   color: white;
 }
 
-.Buttons {
+.Button {
   display: flex;
 }
