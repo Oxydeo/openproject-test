@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import Aux from '../../../hoc/Auxe';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = (props) => {
-  const ingredientSummary = Object.keys(props.ingredients)
-    .map(igKey => {
-      return (
-      <li key={igKey}>
-        <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.ingredients[igKey]}
-      </li>);
-    })
-  return (
-    <Aux>
-      <h3>Your Order</h3>
-      <p>A delicious burger with the following ingredients:</p>
-      <ul>
-        {ingredientSummary}
-      </ul>
-      <p><strong>Total Price: {props.price.toFixed(2)} €</strong></p>
-      <p>Continue to Checkout?</p>
-      <Button btnType="Danger" onClick={props.purchaseCancelled}>CANCEL</Button>
-      <Button btnType="Success" onClick={props.purchaseContinued}>CONTINUE</Button>
-    </Aux>
-  );
-};
+class OrderSummary extends Component {
+  componentWillUpdate() {
 
-export default orderSummary;
+    
+  }
+  render () {
+    const ingredientSummary = Object.keys( this.props.ingredients )
+        .map( igKey => {
+            return (
+                <li key={igKey}>
+                    <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {this.props.ingredients[igKey]}
+                </li> );
+        } );
+    return (
+      <Aux>
+          <h3>Votre commande</h3>
+          <p>Votre burger contient les éléments suivant:</p>
+          <ul>
+              {ingredientSummary}
+          </ul>
+          <p><strong> Prix total: {this.props.price.toFixed(2)} €</strong></p>
+          <p>Continuer vers le règlement?</p>
+          <Button btnType="Danger" clicked={this.props.purchaseCancelled}>FERMER</Button>
+          <Button btnType="Success" clicked={this.props.purchaseContinued}>CONTINUER</Button>
+      </Aux>
+    );
+  }
+}
+
+export default OrderSummary;
